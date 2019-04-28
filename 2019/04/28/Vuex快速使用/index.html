@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://zengxuelu.github.io">
   <title>Vuex快速使用 | Jerry&#39;s Develop Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+  <meta name="description" content="Vuex快速使用什么是Vuex？官网回答Vuex中文官网 Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化具体的可以查看官网介绍 接下来本文对 Vuex 官方文档重新组织编排，希望正在学习 Vue 的同学们，在阅读后可快速使用 Vuex。 开始使用 Vuex，把状态拿到应用外部管理，Vuex管">
 <meta name="keywords" content="前端,Vue,Vuex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vuex快速使用">
 <meta property="og:url" content="https://zengxuelu.github.io/2019/04/28/Vuex快速使用/index.html">
 <meta property="og:site_name" content="Jerry&#39;s Develop Blog">
-<meta property="og:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+<meta property="og:description" content="Vuex快速使用什么是Vuex？官网回答Vuex中文官网 Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化具体的可以查看官网介绍 接下来本文对 Vuex 官方文档重新组织编排，希望正在学习 Vue 的同学们，在阅读后可快速使用 Vuex。 开始使用 Vuex，把状态拿到应用外部管理，Vuex管">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-28T07:07:35.768Z">
+<meta property="og:updated_time" content="2019-04-28T07:43:35.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuex快速使用">
-<meta name="twitter:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+<meta name="twitter:description" content="Vuex快速使用什么是Vuex？官网回答Vuex中文官网 Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化具体的可以查看官网介绍 接下来本文对 Vuex 官方文档重新组织编排，希望正在学习 Vue 的同学们，在阅读后可快速使用 Vuex。 开始使用 Vuex，把状态拿到应用外部管理，Vuex管">
   
     <link rel="alternative" href="/atom.xml" title="Jerry&#39;s Develop Blog" type="application/atom+xml">
   
@@ -179,7 +179,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="Vuex快速使用"><a href="#Vuex快速使用" class="headerlink" title="Vuex快速使用"></a>Vuex快速使用</h2><p>什么是Vuex？<br>官网回答<a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">Vuex中文官网</a> <code>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化</code><br>具体的可以查看官网介绍</p>
+<p>接下来本文对 Vuex 官方文档重新组织编排，希望正在学习 Vue 的同学们，在阅读后可快速使用 Vuex。</p>
+<p>开始使用 Vuex，把状态拿到应用外部管理，Vuex管这个管理状态的玩意叫 <code>Store</code>，一个完全独立的应用，他只负责状态管理。尝试把 Vuex 应用和 Vue 应用划清界限</p>
+<ol>
+<li>一个 Vuex 应用，做状态管理，可以理解是 Model 层</li>
+<li>一个 Vue 应用，仅负责数据展示，纯纯的 View 层</li>
+</ol>
+<h3 id="Vuex-应用"><a href="#Vuex-应用" class="headerlink" title="Vuex 应用"></a>Vuex 应用</h3><p>所谓状态管理，无非就是<code>定义状态，修改状态</code></p>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><h3 id="定义-State"><a href="#定义-State" class="headerlink" title="定义 State"></a>定义 State</h3><p>在 Vuex 里定义状态，我们需要 new 一个 Store 出来，每一个 Vuex 应用的核心就是 store（仓库）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store.js</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"vue"</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">"vuex"</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure></p>
+<p>以上代码创建了一个 store ， store.state 里面定义了状态。写在 Vue 里面定义 data 没有任何区别</p>
+<h3 id="修改-State"><a href="#修改-State" class="headerlink" title="修改 State"></a>修改 State</h3><p>如果你想快点用上 Vuex，你可以在组件里直接修改 store 里的 state，（直接修改的意思就是，用点操作修改）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">state.count = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p>虽然这样可以正常工作，但在严格模式下会报错，更改 store 中的状态的唯一方法应该是提交 mutation</p>
+<h2 id="mutation"><a href="#mutation" class="headerlink" title="mutation"></a>mutation</h2><p>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation</p>
+<p>在 <code>Vuex.Store</code> 的构造器选项中，有一个 mutation 选项，这个选项就像是事件注册：key 是一个字符串表示 mutation 的类型（type），value 是一个回调函数（handler）</p>
+<p>这个回调函数就是我们实际进行状态更改的地方，它有两个入参，第一个参数是 state，就是 store 里的 state；第二个参数是 Payload，这是提交 mutation 时候额外传入的参数</p>
+<h3 id="定义-mutation"><a href="#定义-mutation" class="headerlink" title="定义 mutation"></a>定义 mutation</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    increment(state) &#123;</span><br><span class="line">      state.count++ <span class="comment">// 变更状态</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="提交-mutation"><a href="#提交-mutation" class="headerlink" title="提交 mutation"></a>提交 mutation</h3><p>上面定义了 mutation，要唤醒一个 mutation handler，唯一的接口是store.commit，如果你熟悉事件监听，commit 就类似于 Vue 的 $emit，jquery 的 trigger</p>
+<p>可想而知，commit 方法传参必须至少有一个能区分 mutation 的唯一标识，这个标识就是 type</p>
+<h3 id="commit-参数是对象"><a href="#commit-参数是对象" class="headerlink" title="commit 参数是对象"></a>commit 参数是对象</h3><p>当 commit 的参数是一个对象的时候，对象里必须要有 type 字段，除了 type 字段，你还可以添加额外任意字段为载荷（payload）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象风格的提交方式</span></span><br><span class="line">store.commit(&#123;</span><br><span class="line">  type: <span class="string">"increment"</span>,</span><br><span class="line">  amount: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>把 type 和 payload 分开也是个不错的选择，可以把 type 单独拿出来当第一个参数，以commit(type,[payload])的形式提交，官方称此为以载荷形式提交<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">store.commit(<span class="string">"increment"</span>)</span><br><span class="line">store.commit(<span class="string">"increment"</span>, <span class="number">10</span>)</span><br><span class="line">store.commit(<span class="string">"increment"</span>, &#123; <span class="attr">count</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>到这里我们已经知道如何定义 mutation 和提交 mutation 了，commit 接口很简单，但在哪里使用呢？有两个地方用</p>
+<ol>
+<li>Vue 应用的组件里，在组件里调用 <code>store.commit</code></li>
+<li>还有 store 的 action 里</li>
+</ol>
+<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><p>状态管理不过就是定义 state 和修改 state，mutation 已经可以修改 state 了，为什么还需要 action？</p>
+<p>在 Vuex 中，mutation 都是同步事务，在 mutation 中混合异步调用会导致你的程序很难调试</p>
+<p>例如，当你调用了两个包含异步回调的 mutation 来改变状态，你怎么知道什么时候回调和哪个先回调呢？这就是为什么我们要区分这两个概念</p>
+<p>Action 确实和 mutation 很类似，不同在于：</p>
+<ol>
+<li>Action 提交的是 mutation，而不是直接变更状态</li>
+<li>Action 可以包含任意异步操作</li>
+</ol>
+<h3 id="注册-action"><a href="#注册-action" class="headerlink" title="注册 action"></a>注册 action</h3><p>注册 action 就跟定义 mutation 一样，除了 handler 的入参不同</p>
+<p>Action 函数的入参是一个与 store 实例具有相同方法和属性的 context 对象。因此可以</p>
+<ol>
+<li>context.commit 提交一个 mutation</li>
+<li>context.state获取 state</li>
+<li>context.getters 获取 getters</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    increment(state) &#123;</span><br><span class="line">      state.count++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    increment(context) &#123;</span><br><span class="line">      context.commit(<span class="string">"increment"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="发布-action"><a href="#发布-action" class="headerlink" title="发布 action"></a>发布 action</h3><p>Action 通过 store.dispatch方法触发</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以载荷形式分发</span></span><br><span class="line">store.dispatch(<span class="string">"incrementAsync"</span>, &#123;</span><br><span class="line">  amount: <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以对象形式分发</span></span><br><span class="line">store.dispatch(&#123;</span><br><span class="line">  type: <span class="string">"incrementAsync"</span>,</span><br><span class="line">  amount: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="组合-Action"><a href="#组合-Action" class="headerlink" title="组合 Action"></a>组合 Action</h3><p>store.dispatch 可以处理被触发的 action 的处理函数返回的 Promise，并且 store.dispatch 仍旧返回 Promise，因此，通过  async / await，很方便控制流程</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">actions: &#123;</span><br><span class="line">  <span class="keyword">async</span> actionA (&#123; commit &#125;) &#123;</span><br><span class="line">    commit(<span class="string">'gotData'</span>, <span class="keyword">await</span> getData())</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">async</span> actionB (&#123; dispatch, commit &#125;) &#123;</span><br><span class="line">    <span class="keyword">await</span> dispatch(<span class="string">'actionA'</span>) <span class="comment">// 等待 actionA 完成</span></span><br><span class="line">    commit(<span class="string">'gotOtherData'</span>, <span class="keyword">await</span> getOtherData())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h4><p>表单的问题在于使用v-model时候，v-model会试图直接修改 state，而 Vuex 在严格模式下是不允许直接修改 state 的</p>
+<p>很容易解决，只要我们把修改 state 的行为按 Vuex 的要求以commit mutation 方式修改即可</p>
+<h5 id="用-Vuex-的思维-解决"><a href="#用-Vuex-的思维-解决" class="headerlink" title="用 Vuex 的思维 解决"></a>用 Vuex 的思维 解决</h5><p>抛弃v-model指令，自己去实现v-model双向绑定，非常简单</p>
+<ol>
+<li>input标签的value属性绑定对应从 store 中映射来的计算属性</li>
+<li>监听 input 事件，用 commit mutation 的方式，修改 store 里的 state</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">:value</span>=<span class="string">"message"</span> @<span class="attr">input</span>=<span class="string">"updateMessage"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  ...mapState(&#123;</span><br><span class="line">    message: <span class="function"><span class="params">state</span> =&gt;</span> state.obj.message</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  updateMessage (e) &#123;</span><br><span class="line">    <span class="keyword">this</span>.$store.commit(<span class="string">'updateMessage'</span>, e.target.value)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>store 中的 mutation 函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mutations: &#123;</span><br><span class="line">  updateMessage (state, message) &#123;</span><br><span class="line">    state.obj.message = message</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="用-Vue-的计算属性解决"><a href="#用-Vue-的计算属性解决" class="headerlink" title="用 Vue 的计算属性解决"></a>用 Vue 的计算属性解决</h5><p>如果坚持使用v-model，可以在 Vue 里对v-model绑定的计算属性设置 set 行为<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"message"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  message: &#123;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.obj.message</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> (value) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'updateMessage'</span>, value)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="核心原则"><a href="#核心原则" class="headerlink" title="核心原则"></a>核心原则</h3><ol>
+<li>应用层级的状态应该集中到单个 store 对象中</li>
+<li>提交 mutation 是更改状态的唯一方法，并且这个过程是同步的</li>
+<li>异步逻辑都应该封装到 action 里面</li>
+</ol>
+<p>使用 Vuex 进行状态管理，到此结束</p>
+
       
 
       <!--  -->
