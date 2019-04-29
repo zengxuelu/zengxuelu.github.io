@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://zengxuelu.github.io">
-  <title>页面loading代码 | Jerry&#39;s Develop Blog</title>
+  <title>javascript变量和数据类型 | Jerry&#39;s Develop Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="loading入场加载页面">
+  <meta name="description" content="一、JavaScript  规定了几种数据类型 Number 数字类型 JavaScript 的Number共有1 8437736874454810627 (就是 264-253 +3)个值。JavaScript的 Number 以双精度浮点类型存储，除了9007199254740990表示 NaN，它遵守IEEE 规定，占用64位8字节。  String 字符串类型 String 类型的的正式解">
 <meta name="keywords" content="js,前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面loading代码">
-<meta property="og:url" content="https://zengxuelu.github.io/2019/04/26/页面loading代码/index.html">
+<meta property="og:title" content="javascript变量和数据类型">
+<meta property="og:url" content="https://zengxuelu.github.io/2019/04/29/javascript变量和数据类型/index.html">
 <meta property="og:site_name" content="Jerry&#39;s Develop Blog">
-<meta property="og:description" content="loading入场加载页面">
+<meta property="og:description" content="一、JavaScript  规定了几种数据类型 Number 数字类型 JavaScript 的Number共有1 8437736874454810627 (就是 264-253 +3)个值。JavaScript的 Number 以双精度浮点类型存储，除了9007199254740990表示 NaN，它遵守IEEE 规定，占用64位8字节。  String 字符串类型 String 类型的的正式解">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-28T09:12:54.930Z">
+<meta property="og:updated_time" content="2019-04-29T07:15:49.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面loading代码">
-<meta name="twitter:description" content="loading入场加载页面">
+<meta name="twitter:title" content="javascript变量和数据类型">
+<meta name="twitter:description" content="一、JavaScript  规定了几种数据类型 Number 数字类型 JavaScript 的Number共有1 8437736874454810627 (就是 264-253 +3)个值。JavaScript的 Number 以双精度浮点类型存储，除了9007199254740990表示 NaN，它遵守IEEE 规定，占用64位8字节。  String 字符串类型 String 类型的的正式解">
   
     <link rel="alternative" href="/atom.xml" title="Jerry&#39;s Develop Blog" type="application/atom+xml">
   
@@ -159,28 +159,96 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-页面loading代码" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-javascript变量和数据类型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      页面loading代码
+      javascript变量和数据类型
     </h1>
   
 
         
-        <a href="/2019/04/26/页面loading代码/" class="archive-article-date">
-  	<time datetime="2019-04-26T09:42:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
+        <a href="/2019/04/29/javascript变量和数据类型/" class="archive-article-date">
+  	<time datetime="2019-04-29T07:10:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="loading入场加载页面"><a href="#loading入场加载页面" class="headerlink" title="loading入场加载页面"></a>loading入场加载页面</h3><a id="more"></a>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LoadImg</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.imageUrl = <span class="string">""</span>;</span><br><span class="line">  <span class="comment">//图片资源, 存放图片对象</span></span><br><span class="line">  <span class="keyword">this</span>.sources = [];</span><br><span class="line">  <span class="comment">//新建图片方法</span></span><br><span class="line">  <span class="keyword">this</span>.creatImg = <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.sources[src] != <span class="string">"undefined"</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.sources[src];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.sources[src] = <span class="keyword">new</span> Image();</span><br><span class="line">    <span class="keyword">this</span>.sources[src].src = src;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.sources[src];</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//图片预加载方法</span></span><br><span class="line">  <span class="keyword">this</span>.loadImages = <span class="function"><span class="keyword">function</span>(<span class="params">images, id, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> loadedImages = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> numImages = images.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> wload = <span class="built_in">document</span>.getElementById(<span class="string">'loading'</span>).offsetWidth;</span><br><span class="line">    <span class="keyword">if</span>(id != <span class="string">''</span>)</span><br><span class="line">    <span class="comment">// 可以设置页面加载百分比 较为真实</span></span><br><span class="line">    <span class="keyword">var</span> bfs = (<span class="number">100</span>/(numImages+<span class="number">1</span>)).toFixed(<span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> images) &#123;</span><br><span class="line">      <span class="keyword">this</span>.sources[images[i]] = <span class="keyword">new</span> Image();</span><br><span class="line">      <span class="keyword">this</span>.sources[images[i]].onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        loadedImages++;</span><br><span class="line">        <span class="keyword">if</span>(id != <span class="string">''</span>)&#123;</span><br><span class="line">          <span class="keyword">var</span> bf = <span class="built_in">Math</span>.round(loadedImages * bfs);</span><br><span class="line">          <span class="built_in">document</span>.getElementById(id).innerHTML = bf + <span class="string">'%'</span>;	</span><br><span class="line">          <span class="built_in">document</span>.getElementById(id).style.width = <span class="built_in">Math</span>.round(wload*(bf/<span class="number">100</span>)) + <span class="string">'px'</span>;	</span><br><span class="line">          <span class="built_in">document</span>.getElementById(id).style.color = <span class="string">'#fff'</span>;	</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(loadedImages &gt;= numImages)</span><br><span class="line">        setTimeout((<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; callback();	 &#125;),<span class="number">400</span>);</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">this</span>.sources[images[i]].src = <span class="keyword">this</span>.imageUrl + images[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> loadImg = <span class="keyword">new</span> LoadImg();</span><br><span class="line">  <span class="keyword">var</span> imgs = []; <span class="comment">// for example: [../xx/xx/1.png, ../xx/xx/2.png]</span></span><br><span class="line">  <span class="comment">// 参数1 imgs: 需要处理加载的图片路径，参数2：显示加载百分比元素id（如果需要显示,则传入该参数），参数3：callback</span></span><br><span class="line">  loadImg.loadImages(imgs, <span class="string">''</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// to do something</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="一、JavaScript-规定了几种数据类型"><a href="#一、JavaScript-规定了几种数据类型" class="headerlink" title="一、JavaScript  规定了几种数据类型"></a>一、<code>JavaScript</code>  规定了几种数据类型</h2><ul>
+<li><p>Number 数字类型</p>
+<p><code>JavaScript 的Number共有1 8437736874454810627 (就是 264-253 +3)个值。JavaScript的 Number 以双精度浮点类型存储，除了9007199254740990表示 NaN，它遵守IEEE 规定，占用64位8字节。</code></p>
+</li>
+<li><p>String 字符串类型</p>
+<p><code>String 类型的的正式解释是一个16位无符号整数类型的序列，它实际上用来表示以UTF-16编码的文本信息。</code></p>
+</li>
+<li><p>Boolean 布尔类型</p>
+<p><code>Boolean有两种取值true和false</code></p>
+</li>
+<li><p>Object 对象</p>
+<p><code>JavaScript 中最为复杂的类型就是 Object，它是一系列属性的无序集合，Function 是实现了私有属性[[call]]的 Object，JavaScript 的宿主也可以提供一些特别的对象。</code></p>
+</li>
+<li><p>Null</p>
+<p><code>Null 类型也只有一个值 null ,但是 JavaScript 为它提供了一个关键字 null 来表示这个唯一的值。Null 类型的语义是“一个空的对象引用”。</code></p>
+</li>
+<li><p>Undefined</p>
+<p><code>Undefined 类型只有一个值 undefined，它是变量未被赋值时的值，在 JS 中全局对象有一个undefined 属性表示 undefined，事实上 undefined 并非 JavaScript 的关键字，可以给全局的 undefined 属性赋值来改变它的值。</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Null 和 Undefined 的区别</span><br><span class="line"></span><br><span class="line">null： Null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到 “object”，所以你可以认为它是一个特殊的对象值。</span><br><span class="line"></span><br><span class="line">undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、Javascript-值类型和引用类型"><a href="#二、Javascript-值类型和引用类型" class="headerlink" title="二、Javascript  值类型和引用类型"></a>二、<code>Javascript</code>  值类型和引用类型</h2><ol>
+<li>Javascript 变量类型</li>
+</ol>
+<ul>
+<li>值类型：String、Number、Boolean、Undefined、Null</li>
+<li>引用类型：Object、Array、Function</li>
+</ul>
+<ol start="2">
+<li>值类型和引用类型区别<ul>
+<li>值类型：<ul>
+<li>占用空间固定，保存在栈中。</li>
+<li>保存和复制的值本身</li>
+<li>使用 typeof 检测数据的类型</li>
+<li>基本数据类型是值类型</li>
+<li>值类型的比较是值的比较</li>
+</ul>
+</li>
+<li>引用类型：<ul>
+<li>占用空间不固定，保存在堆中</li>
+<li>保存和复制的是指向对象的一个指针</li>
+<li>使用instanceof检测数据类型</li>
+<li>使用new 方法构造出的对象是引用类型</li>
+<li>可以添加属性和方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、判断JavaScript数据类型的方式"><a href="#三、判断JavaScript数据类型的方式" class="headerlink" title="三、判断JavaScript数据类型的方式"></a>三、判断<code>JavaScript</code>数据类型的方式</h2><ol>
+<li><p>typeof</p>
+<p>返回值是字符串 有”number”，”boolean”，”string”，”undefined”，”function”，”object”</p>
+<p>缺点：不能区分数组，对象，正则，因为返回的都是“object”</p>
+<p>使用场景：检测函数的参数是否传值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>); <span class="comment">// "object"</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> reg); <span class="comment">// "object"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>instanceof </p>
+<p>检测某个实例是否在该实例的原型链上</p>
+<p>缺点：1. 只要在当前的实例原型链上都返回true；2. 对于基本数据类型，字面量方式无法检测，可以检测出实例创建方式的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(fn <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor 构造函数</p>
+<p>检测基本数据类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="built_in">console</span>.log(arr.constructor === <span class="built_in">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num.constructor === <span class="built_in">Number</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>检测Object</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>();</span><br><span class="line"><span class="built_in">console</span>.log(reg.constructor === <span class="built_in">RegExp</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.constructor === <span class="built_in">Object</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>缺点：若改写原型或者覆盖，检测结果就不准确</p>
+</li>
+</ol>
+
       
 
       <!--  -->
@@ -282,7 +350,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zengxuelu.github.io/2019/04/26/页面loading代码/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zengxuelu.github.io/2019/04/29/javascript变量和数据类型/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +364,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/28/Vuex快速使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vuex快速使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/26/深入浅出JavaScript运行机制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">深入浅出JavaScript运行机制</div>
+    <a href="/2019/04/28/Vuex快速使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vuex快速使用</div>
       <i class="icon-circle-right"></i>
     </a>
   

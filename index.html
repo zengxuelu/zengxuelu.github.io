@@ -160,6 +160,152 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-javascript变量和数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/29/javascript变量和数据类型/">javascript变量和数据类型</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/29/javascript变量和数据类型/" class="archive-article-date">
+  	<time datetime="2019-04-29T07:10:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、JavaScript-规定了几种数据类型"><a href="#一、JavaScript-规定了几种数据类型" class="headerlink" title="一、JavaScript  规定了几种数据类型"></a>一、<code>JavaScript</code>  规定了几种数据类型</h2><ul>
+<li><p>Number 数字类型</p>
+<p><code>JavaScript 的Number共有1 8437736874454810627 (就是 264-253 +3)个值。JavaScript的 Number 以双精度浮点类型存储，除了9007199254740990表示 NaN，它遵守IEEE 规定，占用64位8字节。</code></p>
+</li>
+<li><p>String 字符串类型</p>
+<p><code>String 类型的的正式解释是一个16位无符号整数类型的序列，它实际上用来表示以UTF-16编码的文本信息。</code></p>
+</li>
+<li><p>Boolean 布尔类型</p>
+<p><code>Boolean有两种取值true和false</code></p>
+</li>
+<li><p>Object 对象</p>
+<p><code>JavaScript 中最为复杂的类型就是 Object，它是一系列属性的无序集合，Function 是实现了私有属性[[call]]的 Object，JavaScript 的宿主也可以提供一些特别的对象。</code></p>
+</li>
+<li><p>Null</p>
+<p><code>Null 类型也只有一个值 null ,但是 JavaScript 为它提供了一个关键字 null 来表示这个唯一的值。Null 类型的语义是“一个空的对象引用”。</code></p>
+</li>
+<li><p>Undefined</p>
+<p><code>Undefined 类型只有一个值 undefined，它是变量未被赋值时的值，在 JS 中全局对象有一个undefined 属性表示 undefined，事实上 undefined 并非 JavaScript 的关键字，可以给全局的 undefined 属性赋值来改变它的值。</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Null 和 Undefined 的区别</span><br><span class="line"></span><br><span class="line">null： Null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到 “object”，所以你可以认为它是一个特殊的对象值。</span><br><span class="line"></span><br><span class="line">undefined： Undefined类型，当一个声明了一个变量未初始化时，得到的就是undefined。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、Javascript-值类型和引用类型"><a href="#二、Javascript-值类型和引用类型" class="headerlink" title="二、Javascript  值类型和引用类型"></a>二、<code>Javascript</code>  值类型和引用类型</h2><ol>
+<li>Javascript 变量类型</li>
+</ol>
+<ul>
+<li>值类型：String、Number、Boolean、Undefined、Null</li>
+<li>引用类型：Object、Array、Function</li>
+</ul>
+<ol start="2">
+<li>值类型和引用类型区别<ul>
+<li>值类型：<ul>
+<li>占用空间固定，保存在栈中。</li>
+<li>保存和复制的值本身</li>
+<li>使用 typeof 检测数据的类型</li>
+<li>基本数据类型是值类型</li>
+<li>值类型的比较是值的比较</li>
+</ul>
+</li>
+<li>引用类型：<ul>
+<li>占用空间不固定，保存在堆中</li>
+<li>保存和复制的是指向对象的一个指针</li>
+<li>使用instanceof检测数据类型</li>
+<li>使用new 方法构造出的对象是引用类型</li>
+<li>可以添加属性和方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、判断JavaScript数据类型的方式"><a href="#三、判断JavaScript数据类型的方式" class="headerlink" title="三、判断JavaScript数据类型的方式"></a>三、判断<code>JavaScript</code>数据类型的方式</h2><ol>
+<li><p>typeof</p>
+<p>返回值是字符串 有”number”，”boolean”，”string”，”undefined”，”function”，”object”</p>
+<p>缺点：不能区分数组，对象，正则，因为返回的都是“object”</p>
+<p>使用场景：检测函数的参数是否传值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>); <span class="comment">// "object"</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> obj); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arr); <span class="comment">// "object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> reg); <span class="comment">// "object"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>instanceof </p>
+<p>检测某个实例是否在该实例的原型链上</p>
+<p>缺点：1. 只要在当前的实例原型链上都返回true；2. 对于基本数据类型，字面量方式无法检测，可以检测出实例创建方式的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(fn <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>constructor 构造函数</p>
+<p>检测基本数据类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="built_in">console</span>.log(arr.constructor === <span class="built_in">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num.constructor === <span class="built_in">Number</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>检测Object</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>();</span><br><span class="line"><span class="built_in">console</span>.log(reg.constructor === <span class="built_in">RegExp</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.constructor === <span class="built_in">Object</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>缺点：若改写原型或者覆盖，检测结果就不准确</p>
+</li>
+</ol>
+
+      
+
+      <!--  -->
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/29/javascript变量和数据类型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Vuex快速使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -287,11 +433,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -370,11 +516,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -507,11 +653,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
