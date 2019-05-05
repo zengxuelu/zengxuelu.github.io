@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://zengxuelu.github.io">
-  <title>Tag: 前端 | Jerry&#39;s Develop Blog</title>
+  <title>CSS Grid布局详解 | Jerry&#39;s Develop Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
-<meta name="keywords" content="经验分享,前端知识,生活琐事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jerry&#39;s Develop Blog">
-<meta property="og:url" content="https://zengxuelu.github.io/tags/前端/index.html">
+  <meta name="description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。 父元素 网格容器(Grid Cont">
+<meta name="keywords" content="CSS,Grid布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Grid布局详解">
+<meta property="og:url" content="https://zengxuelu.github.io/2019/04/30/CSS-Grid布局详解/index.html">
 <meta property="og:site_name" content="Jerry&#39;s Develop Blog">
-<meta property="og:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+<meta property="og:description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。 父元素 网格容器(Grid Cont">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.html.cn/newimg88/2018/12/dddgrid-template-areas.svg">
+<meta property="og:image" content="https://www.html.cn/newimg88/2018/12/dddgrid-gap.svg">
+<meta property="og:updated_time" content="2019-05-05T06:08:05.516Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jerry&#39;s Develop Blog">
-<meta name="twitter:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+<meta name="twitter:title" content="CSS Grid布局详解">
+<meta name="twitter:description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。 父元素 网格容器(Grid Cont">
+<meta name="twitter:image" content="https://www.html.cn/newimg88/2018/12/dddgrid-template-areas.svg">
   
     <link rel="alternative" href="/atom.xml" title="Jerry&#39;s Develop Blog" type="application/atom+xml">
   
@@ -156,194 +160,288 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CSS-Grid布局详解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS Grid布局详解
+    </h1>
+  
+
+        
+        <a href="/2019/04/30/CSS-Grid布局详解/" class="archive-article-date">
+  	<time datetime="2019-04-30T09:58:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 <strong>父元素</strong> (成为 Grid Container 网格容器)和其 <strong>子元素</strong>（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。</p>
+<h2 id="父元素-网格容器-Grid-Container-属性"><a href="#父元素-网格容器-Grid-Container-属性" class="headerlink" title="父元素 网格容器(Grid Container) 属性"></a>父元素 网格容器(Grid Container) 属性</h2><h5 id="display"><a href="#display" class="headerlink" title="display"></a>display</h5><hr>
+<p>将元素定义为网格容器，并为其内容建立新的 <code>网格格式上下文</code></p>
+<p>值：</p>
+<ul>
+<li><code>grid</code>：生成一个块级网格</li>
+<li><code>inline-grid</code>：生成一个内联网格</li>
+</ul>
+<p>CSS 代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid | inline-grid</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="grid-template-columns-grid-template-rows"><a href="#grid-template-columns-grid-template-rows" class="headerlink" title="grid-template-columns / grid-template-rows"></a>grid-template-columns / grid-template-rows</h5><hr>
+<p>使用空格分隔的值列表，用来定义网格的列和行。这些值表示 网格轨道(Grid Track) 大小，它们之间的空格表示网格线。</p>
+<p>值：</p>
+<ul>
+<li><code>&lt;track-size&gt;</code>： 可以是长度值，百分比，或者等份网格容器中可用空间（使用 <code>fr</code> 单位）</li>
+<li><code>&lt;line-name&gt;</code>：你可以选择的任意名称</li>
+</ul>
+<p>CSS 代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">50px</span> <span class="number">40px</span> auto <span class="number">100px</span> <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">100px</span> <span class="number">50px</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="grid-template-areas"><a href="#grid-template-areas" class="headerlink" title="grid-template-areas"></a>grid-template-areas</h5><hr>
+<p>通过引用 <a href="https://www.html.cn/archives/8510#prop-grid-area" target="_blank" rel="noopener"><code>grid-area</code></a> 属性指定的 网格区域(Grid Area) 名称来定义网格模板。重复网格区域的名称导致内容跨越这些单元格。一个点号（<code>.</code>）代表一个空单元格。这个语法本身可视作网格的可视化结构。</p>
+<p>值：</p>
+<ul>
+<li><code>&lt;grid-area-name&gt;</code>：由网格项的 <a href="https://www.html.cn/archives/8510#prop-grid-area" target="_blank" rel="noopener"><code>grid-area</code></a> 指定的网格区域名称</li>
+<li><code>.</code>（点号） ：代表一个空的网格单元</li>
+<li><code>none</code>：不定义网格区域</li>
+</ul>
+<p>CSS 代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-areas</span>: </span><br><span class="line">    <span class="string">"&lt;grid-area-name&gt; | . | none | ..."</span></span><br><span class="line">    <span class="string">"..."</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实例代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item-a</span> &#123;</span><br><span class="line">  <span class="attribute">grid-area</span>: header;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item-b</span> &#123;</span><br><span class="line">  <span class="attribute">grid-area</span>: main;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item-c</span> &#123;</span><br><span class="line">  <span class="attribute">grid-area</span>: sidebar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item-d</span> &#123;</span><br><span class="line">  <span class="attribute">grid-area</span>: footer;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: auto;</span><br><span class="line">  <span class="attribute">grid-template-areas</span>: </span><br><span class="line">    <span class="string">"header header header header"</span></span><br><span class="line">    <span class="string">"main main . sidebar"</span></span><br><span class="line">    <span class="string">"footer footer footer footer"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码将创建一个 4 列宽 3 行高的网格。整个顶行将由 <strong>header</strong> 区域组成。中间一排将由两个 <strong>main</strong> 区域，一个是空单元格，一个 <strong>sidebar</strong> 区域组成。最后一行全是 <strong>footer</strong> 区域组成。</p>
+<p><img src="https://www.html.cn/newimg88/2018/12/dddgrid-template-areas.svg" alt></p>
+<h5 id="grid-column-gap-grid-row-gap"><a href="#grid-column-gap-grid-row-gap" class="headerlink" title="grid-column-gap / grid-row-gap"></a>grid-column-gap / grid-row-gap</h5><hr>
+<p>网格线的大小（设置列/行之间间距的宽度）</p>
+<p>值：</p>
+<ul>
+<li>line-size：长度值</li>
+</ul>
+<p>CSS 代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">grid-column-gap</span>: &lt;line-size&gt;;</span><br><span class="line">    <span class="attribute">grid-row-gap</span>: &lt;line-size&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">100px</span> <span class="number">50px</span> <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="number">80px</span> auto <span class="number">80px</span>; </span><br><span class="line">  <span class="attribute">grid-column-gap</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">grid-row-gap</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.html.cn/newimg88/2018/12/dddgrid-gap.svg" alt></p>
+<p>只能在 列/行 之间创建间距，网格外部边缘不会有这个间距。</p>
+<h5 id="justify-items"><a href="#justify-items" class="headerlink" title="justify-items"></a>justify-items</h5><hr>
+<p>网格项沿着（行）轴线对齐方式</p>
+<p>值：</p>
+<ul>
+<li><code>start</code>：将网格项对齐到其单元格的左侧起始边缘（左侧对齐）</li>
+<li><code>end</code>：将网格项对齐到其单元格的右侧结束边缘（右侧对齐）</li>
+<li><code>center</code>：将网格项对齐到其单元格的水平中间位置（水平居中对齐）</li>
+<li><code>stretch</code>：填满单元格的宽度（默认值）</li>
+</ul>
+<p>CSS 代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">justify-items</span>: start | end | center | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h5><p>网格项沿着（列）轴线对齐方式</p>
+<p>值：</p>
+<ul>
+<li><code>start</code>：将网格项对齐到其单元格的顶部起始边缘（顶部对齐）</li>
+<li><code>end</code>：将网格项对齐到其单元格的底部结束边缘（底部对齐）</li>
+<li><code>center</code>：将网格项对齐到其单元格的垂直中间位置（垂直居中对齐）</li>
+<li><code>stretch</code>：填满单元格的高度（默认值）</li>
+</ul>
+<p>CSS 代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: start | end | center | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h5><hr>
+<p>网格沿着（行）轴线对齐方式</p>
+<p>值：</p>
+<ul>
+<li><code>start</code>：将网格对齐到 网格容器(grid container) 的左侧起始边缘（左侧对齐）</li>
+<li><code>end</code>：将网格对齐到 网格容器 的右侧结束边缘（右侧对齐）</li>
+<li><code>center</code>：将网格对齐到 网格容器 的水平中间位置（水平居中对齐）</li>
+<li><code>stretch</code>：调整 网格项(grid items) 的宽度，允许该网格填充满整个 网格容器 的宽度</li>
+<li><code>space-around</code>：在每个网格项之间放置一个均匀的空间，左右两端放置一半的空间</li>
+<li><code>space-between</code>：在每个网格项之间放置一个均匀的空间，左右两端没有空间</li>
+<li><code>space-evenly</code>：在每个网格项目之间放置一个均匀的空间，左右两端放置一个均匀的空间</li>
+</ul>
+<p>CSS 代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: start | end | center | stretch | space-around | space-between | space-evenly;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h5><hr>
+<p>网格沿着（列）轴线对齐方式</p>
+<p>值：</p>
+<ul>
+<li><code>start</code>：将网格对齐到 网格容器(grid container) 的顶部起始边缘（顶部对齐）</li>
+<li><code>end</code>：将网格对齐到 网格容器 的底部结束边缘（底部对齐）</li>
+<li><code>center</code>：将网格对齐到 网格容器 的垂直中间位置（垂直居中对齐）</li>
+<li><code>stretch</code>：调整 网格项(grid items) 的高度，允许该网格填充满整个 网格容器 的高度</li>
+<li><code>space-around</code>：在每个网格项之间放置一个均匀的空间，上下两端放置一半的空间</li>
+<li><code>space-between</code>：在每个网格项之间放置一个均匀的空间，上下两端没有空间</li>
+<li><code>space-evenly</code>：在每个网格项目之间放置一个均匀的空间，上下两端放置一个均匀的空间</li>
+</ul>
+<h2 id="子元素-网格项-Grid-Items-属性"><a href="#子元素-网格项-Grid-Items-属性" class="headerlink" title="子元素 网格项(Grid Items) 属性"></a>子元素 网格项(Grid Items) 属性</h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>坚持原创技术分享，您的支持将鼓励我继续创作！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class>
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/29/javascript变量和数据类型/" class="archive-article-date">
-  	<time datetime="2019-04-29T07:10:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/29/javascript变量和数据类型/">javascript变量和数据类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Grid布局</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zengxuelu.github.io/2019/04/30/CSS-Grid布局详解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/28/Vuex快速使用/" class="archive-article-date">
-  	<time datetime="2019-04-28T07:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/30/hexo+github搭建个人博客流程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo+github搭建个人博客流程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/28/Vuex快速使用/">Vuex快速使用</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vuex</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/26/页面loading代码/" class="archive-article-date">
-  	<time datetime="2019-04-26T09:42:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/26/页面loading代码/">页面loading代码</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/深入浅出JavaScript运行机制/" class="archive-article-date">
-  	<time datetime="2019-03-26T06:07:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/深入浅出JavaScript运行机制/">深入浅出JavaScript运行机制</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
+  <div id="gitment-ctn"></div> 
+<!-- <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "Tue Apr 30 2019 17:58:40 GMT+0800",
+  owner: 'zengxuelu',
+  repo: 'zengxuelu.github.io',
+  oauth: {
+    client_id: '238bf90207616559c008',
+    client_secret: '7f39879035ceb769253b456d15d6115758fbeae3',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -366,9 +464,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
