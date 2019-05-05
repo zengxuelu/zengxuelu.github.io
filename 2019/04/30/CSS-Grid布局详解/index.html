@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://zengxuelu.github.io">
   <title>CSS Grid布局详解 | Jerry&#39;s Develop Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。 父元素 网格容器(Grid Cont">
+  <meta name="description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。">
 <meta name="keywords" content="CSS,Grid布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS Grid布局详解">
 <meta property="og:url" content="https://zengxuelu.github.io/2019/04/30/CSS-Grid布局详解/index.html">
 <meta property="og:site_name" content="Jerry&#39;s Develop Blog">
-<meta property="og:description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。 父元素 网格容器(Grid Cont">
+<meta property="og:description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.html.cn/newimg88/2018/12/dddgrid-template-areas.svg">
 <meta property="og:image" content="https://www.html.cn/newimg88/2018/12/dddgrid-gap.svg">
-<meta property="og:updated_time" content="2019-05-05T06:08:05.516Z">
+<meta property="og:updated_time" content="2019-05-05T06:10:31.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS Grid布局详解">
-<meta name="twitter:description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。 父元素 网格容器(Grid Cont">
+<meta name="twitter:description" content="前言CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 父元素 (成为 Grid Container 网格容器)和其 子元素（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。">
 <meta name="twitter:image" content="https://www.html.cn/newimg88/2018/12/dddgrid-template-areas.svg">
   
     <link rel="alternative" href="/atom.xml" title="Jerry&#39;s Develop Blog" type="application/atom+xml">
@@ -181,6 +181,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>CSS Grid 布局（网格布局）是 CSS 中最强大的布局系统。与 flexbox 的一维布局系统不同，CSS Grid 布局是一个二维布局系统，也就意味着它可以同时处理列和行。通过将 CSS 规则应用于 <strong>父元素</strong> (成为 Grid Container 网格容器)和其 <strong>子元素</strong>（成为 Grid Items 网格项），你就可以轻松使用 Grid(网格) 布局。</p>
+<a id="more"></a>
 <h2 id="父元素-网格容器-Grid-Container-属性"><a href="#父元素-网格容器-Grid-Container-属性" class="headerlink" title="父元素 网格容器(Grid Container) 属性"></a>父元素 网格容器(Grid Container) 属性</h2><h5 id="display"><a href="#display" class="headerlink" title="display"></a>display</h5><hr>
 <p>将元素定义为网格容器，并为其内容建立新的 <code>网格格式上下文</code></p>
 <p>值：</p>
@@ -530,11 +531,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Grid布局</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,15 +551,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+                <a href="javascript:void(0)" class="js-tag color2">Grid布局</a>
               </li>
             
             <div class="clearfix"></div>
