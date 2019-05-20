@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://zengxuelu.github.io">
-  <title>Tag: Vuex | Jerry&#39;s Develop Blog</title>
+  <title>Ajax封装 | Jerry&#39;s Develop Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
-<meta name="keywords" content="经验分享,前端知识,生活琐事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jerry&#39;s Develop Blog">
-<meta property="og:url" content="https://zengxuelu.github.io/tags/Vuex/index.html">
+  <meta name="description" content="前言在前端的开发中，相信大家经常使用jQuery的ajax，和Vue的axios吧，本文是讲解自己怎么去封装自己的ajax思路。首先需要对 XMLHttpRequest 有一点的了解（在这里就不详细解释了）。 在我们正常开发中请求数据往往是如下写代码： 1234567891011myAjax(&amp;#123;  url: &apos;xxx.php&apos;,  method: &apos;GET&apos;,  data: &amp;#123;">
+<meta name="keywords" content="js,ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax封装">
+<meta property="og:url" content="https://zengxuelu.github.io/2019/05/20/Ajax封装/index.html">
 <meta property="og:site_name" content="Jerry&#39;s Develop Blog">
-<meta property="og:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+<meta property="og:description" content="前言在前端的开发中，相信大家经常使用jQuery的ajax，和Vue的axios吧，本文是讲解自己怎么去封装自己的ajax思路。首先需要对 XMLHttpRequest 有一点的了解（在这里就不详细解释了）。 在我们正常开发中请求数据往往是如下写代码： 1234567891011myAjax(&amp;#123;  url: &apos;xxx.php&apos;,  method: &apos;GET&apos;,  data: &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-20T11:06:26.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jerry&#39;s Develop Blog">
-<meta name="twitter:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+<meta name="twitter:title" content="Ajax封装">
+<meta name="twitter:description" content="前言在前端的开发中，相信大家经常使用jQuery的ajax，和Vue的axios吧，本文是讲解自己怎么去封装自己的ajax思路。首先需要对 XMLHttpRequest 有一点的了解（在这里就不详细解释了）。 在我们正常开发中请求数据往往是如下写代码： 1234567891011myAjax(&amp;#123;  url: &apos;xxx.php&apos;,  method: &apos;GET&apos;,  data: &amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="Jerry&#39;s Develop Blog" type="application/atom+xml">
   
@@ -156,68 +157,173 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Ajax封装" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/28/Vuex快速使用/" class="archive-article-date">
-  	<time datetime="2019-04-28T07:06:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/28/Vuex快速使用/">Vuex快速使用</a>
+    <h1 class="article-title" itemprop="name">
+      Ajax封装
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/20/Ajax封装/" class="archive-article-date">
+  	<time datetime="2019-05-20T10:42:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在前端的开发中，相信大家经常使用jQuery的ajax，和Vue的axios吧，本文是讲解自己怎么去封装自己的ajax思路。首先需要对 XMLHttpRequest 有一点的了解（在这里就不详细解释了）。</p>
+<p>在我们正常开发中请求数据往往是如下写代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">myAjax(&#123;</span><br><span class="line">  url: <span class="string">'xxx.php'</span>,</span><br><span class="line">  method: <span class="string">'GET'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    name: <span class="string">'zs'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">  &#125;,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res) <span class="comment">// JSON.parse(res) 处理 json数据</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>现在我们来对myAjax进行封装</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myAjax</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 判断是否传参 options</span></span><br><span class="line">  options = options || &#123;&#125;;</span><br><span class="line">  <span class="comment">// 判断使用什么请求方法， 默认 GET 请求</span></span><br><span class="line">  options.method = options.method.toUpperCase() || <span class="string">'GET'</span>;</span><br><span class="line">  <span class="comment">// 判断请求地址</span></span><br><span class="line">  options.url = options.url || <span class="string">''</span>;</span><br><span class="line">  <span class="comment">// 是否异步</span></span><br><span class="line">  options.async = options.async || <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">// 是否有参数</span></span><br><span class="line">  options.data = options.data || <span class="literal">null</span>;</span><br><span class="line">  <span class="comment">// 请求成功处理</span></span><br><span class="line">  options.success = options.success || <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">  <span class="keyword">let</span> xhr = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">let</span> params = [];</span><br><span class="line">  <span class="comment">// 判断 浏览器是否支持 XMLHttpRequest，如果支持创建 XMLHttpRequest 对象</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 解析参数，以便 GET 请求</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> options.data) &#123;</span><br><span class="line">    params.push(key + <span class="string">'='</span> + options.data[key]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> postData = params.join(<span class="string">'&amp;'</span>);</span><br><span class="line">  <span class="comment">// 判断是 POST 还是 GET 请求</span></span><br><span class="line">  <span class="comment">// 注意：GET 请求是 需要将参数拼接到请求地址后面，POST 则直接发送参数</span></span><br><span class="line">  <span class="keyword">if</span> (options.method.toUpperCase() === <span class="string">'POST'</span>) &#123;</span><br><span class="line">    xhr.open(options.method, options.url, options.async);</span><br><span class="line">    xhr.setRequestHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/x-www-form-urlencoded;charset=utf-8'</span>);</span><br><span class="line">    xhr.send(postData);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    xhr.open(options.method, options.url + <span class="string">'?'</span> + postData, options.async);</span><br><span class="line">    xhr.send(<span class="literal">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 响应求情 </span></span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.status == <span class="number">200</span> &amp;&amp; xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">      <span class="comment">// 返回请求成功获取的 数据 responseText</span></span><br><span class="line">      options.success(xhr.responseText)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vuex</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zengxuelu.github.io/2019/05/20/Ajax封装/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/05/08/倒计时抢购/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">倒计时抢购</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<!-- <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "Mon May 20 2019 18:42:45 GMT+0800",
+  owner: 'zengxuelu',
+  repo: 'zengxuelu.github.io',
+  oauth: {
+    client_id: '238bf90207616559c008',
+    client_secret: '7f39879035ceb769253b456d15d6115758fbeae3',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -240,9 +346,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
