@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://zengxuelu.github.io">
-  <title>Archives: 2019/11 | Jerry&#39;s Develop Blog</title>
+  <title>记好这 24 个 ES6 方法，用来解决实际开发的 JS 问题 | Jerry&#39;s Develop Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
-<meta name="keywords" content="经验分享,前端知识,生活琐事">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jerry&#39;s Develop Blog">
-<meta property="og:url" content="https://zengxuelu.github.io/archives/2019/11/index.html">
+  <meta name="description" content="1. 如何隐藏所有指定元素123456const hideEl = (el) =&amp;gt; Array.from(el).forEach(e =&amp;gt; &amp;#123;  e.style.display = &apos;none&apos;&amp;#125;);// 页面调用  传入对应的选择器hideEl(document.querySelectorAll(&apos;选择器&apos;)) 2. 如何检查元素是否有指定的类名1234const">
+<meta name="keywords" content="js,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记好这 24 个 ES6 方法，用来解决实际开发的 JS 问题">
+<meta property="og:url" content="https://zengxuelu.github.io/2020/03/23/解决实际开发的JS问题/index.html">
 <meta property="og:site_name" content="Jerry&#39;s Develop Blog">
-<meta property="og:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+<meta property="og:description" content="1. 如何隐藏所有指定元素123456const hideEl = (el) =&amp;gt; Array.from(el).forEach(e =&amp;gt; &amp;#123;  e.style.display = &apos;none&apos;&amp;#125;);// 页面调用  传入对应的选择器hideEl(document.querySelectorAll(&apos;选择器&apos;)) 2. 如何检查元素是否有指定的类名1234const">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-25T07:07:21.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jerry&#39;s Develop Blog">
-<meta name="twitter:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
+<meta name="twitter:title" content="记好这 24 个 ES6 方法，用来解决实际开发的 JS 问题">
+<meta name="twitter:description" content="1. 如何隐藏所有指定元素123456const hideEl = (el) =&amp;gt; Array.from(el).forEach(e =&amp;gt; &amp;#123;  e.style.display = &apos;none&apos;&amp;#125;);// 页面调用  传入对应的选择器hideEl(document.querySelectorAll(&apos;选择器&apos;)) 2. 如何检查元素是否有指定的类名1234const">
   
     <link rel="alternative" href="/atom.xml" title="Jerry&#39;s Develop Blog" type="application/atom+xml">
   
@@ -156,36 +157,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-解决实际开发的JS问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/13/各种源码实现/" class="archive-article-date">
-  	<time datetime="2019-11-13T02:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/13/各种源码实现/">各种源码实现</a>
+    <h1 class="article-title" itemprop="name">
+      记好这 24 个 ES6 方法，用来解决实际开发的 JS 问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/03/23/解决实际开发的JS问题/" class="archive-article-date">
+  	<time datetime="2020-03-23T04:12:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-如何隐藏所有指定元素"><a href="#1-如何隐藏所有指定元素" class="headerlink" title="1. 如何隐藏所有指定元素"></a>1. 如何隐藏所有指定元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hideEl = <span class="function">(<span class="params">el</span>) =&gt;</span> <span class="built_in">Array</span>.from(el).forEach(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  e.style.display = <span class="string">'none'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面调用  传入对应的选择器</span></span><br><span class="line">hideEl(<span class="built_in">document</span>.querySelectorAll(<span class="string">'选择器'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="2-如何检查元素是否有指定的类名"><a href="#2-如何检查元素是否有指定的类名" class="headerlink" title="2. 如何检查元素是否有指定的类名"></a>2. 如何检查元素是否有指定的类名</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hasClass = <span class="function">(<span class="params">el, className</span>) =&gt;</span> el.classList.contains(classNmae);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用测试</span></span><br><span class="line">hasClass(<span class="built_in">document</span>.querySelector(<span class="string">'p'</span>), <span class="string">'test'</span>);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="3-如何切换一个元素的类"><a href="#3-如何切换一个元素的类" class="headerlink" title="3. 如何切换一个元素的类"></a>3. 如何切换一个元素的类</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> toggleClass = <span class="function">(<span class="params">el, className</span>) =&gt;</span> el.classList.toggle(className)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用测试</span></span><br><span class="line">toggleClass(<span class="built_in">document</span>.querySelecttor(<span class="string">'div.test'</span>), <span class="string">'test'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="4-如何获取当前页面的滚动位置？"><a href="#4-如何获取当前页面的滚动位置？" class="headerlink" title="4. 如何获取当前页面的滚动位置？"></a>4. 如何获取当前页面的滚动位置？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getScrollPosition = <span class="function">(<span class="params">el = <span class="built_in">window</span></span>) =&gt;</span> (&#123;</span><br><span class="line">  x: el.pageXOffset !== <span class="literal">undefined</span> ? el.pageXOffset : el.scrollLeft,</span><br><span class="line">  y: el.pageYOffset !== <span class="literal">undefined</span> ? el.pageYOffset : el.scrollTop</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">getScrollPosition(); <span class="comment">// &#123;x: 0, y: 200&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-如何平滑滚动到页面顶部"><a href="#5-如何平滑滚动到页面顶部" class="headerlink" title="5. 如何平滑滚动到页面顶部"></a>5. 如何平滑滚动到页面顶部</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scrollToTop = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> c = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">  <span class="keyword">if</span> (c &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.requestAnimationFrame(scrollToTop);</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, c - c / <span class="number">8</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">scrollToTop()</span><br></pre></td></tr></table></figure>
+<h3 id="6-如何检查父元素是否包含子元素？"><a href="#6-如何检查父元素是否包含子元素？" class="headerlink" title="6. 如何检查父元素是否包含子元素？"></a>6. 如何检查父元素是否包含子元素？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elementContains = <span class="function">(<span class="params">parent, child</span>) =&gt;</span> parent !== child &amp;&amp; parent.contains(child);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">elementContains(<span class="built_in">document</span>.querySelector(<span class="string">'head'</span>), <span class="built_in">document</span>.querySelector(<span class="string">'title'</span>)); </span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">elementContains(<span class="built_in">document</span>.querySelector(<span class="string">'body'</span>), <span class="built_in">document</span>.querySelector(<span class="string">'body'</span>)); </span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-如何检查指定的元素在视口中是否可见？"><a href="#7-如何检查指定的元素在视口中是否可见？" class="headerlink" title="7. 如何检查指定的元素在视口中是否可见？"></a>7. 如何检查指定的元素在视口中是否可见？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elementIsVisibleInViewport = <span class="function">(<span class="params">el, partiallyVisible = <span class="literal">false</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; top, left, bottom, right &#125; = el.getBoundingClientRect();</span><br><span class="line">  <span class="keyword">const</span> &#123; innerHeight, innerWidth &#125; = <span class="built_in">window</span>;</span><br><span class="line">  <span class="keyword">return</span> partiallyVisible</span><br><span class="line">    ? ((top &gt; <span class="number">0</span> &amp;&amp; top &lt; innerHeight) || (bottom &gt; <span class="number">0</span> &amp;&amp; bottom &lt; innerHeight)) &amp;&amp;</span><br><span class="line">        ((left &gt; <span class="number">0</span> &amp;&amp; left &lt; innerWidth) || (right &gt; <span class="number">0</span> &amp;&amp; right &lt; innerWidth))</span><br><span class="line">    : top &gt;= <span class="number">0</span> &amp;&amp; left &gt;= <span class="number">0</span> &amp;&amp; bottom &lt;= innerHeight &amp;&amp; right &lt;= innerWidth;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">elementIsVisibleInViewport(el); <span class="comment">// 需要左右可见</span></span><br><span class="line">elementIsVisibleInViewport(el, <span class="literal">true</span>); <span class="comment">// 需要全屏(上下左右)可以见</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-如何获取元素中的所有图像？"><a href="#8-如何获取元素中的所有图像？" class="headerlink" title="8. 如何获取元素中的所有图像？"></a>8. 如何获取元素中的所有图像？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getImages = <span class="function">(<span class="params">el, includeDuplicates = <span class="literal">false</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> images = [...el.getElementsByTagName(<span class="string">'img'</span>)].map(<span class="function"><span class="params">img</span> =&gt;</span> img.getAttribute(<span class="string">'src'</span>));</span><br><span class="line">  <span class="keyword">return</span> includeDuplicates ? images : [...new <span class="built_in">Set</span>(images)];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例：includeDuplicates 为 true 表示需要排除重复元素</span></span><br><span class="line">getImages(<span class="built_in">document</span>, <span class="literal">true</span>); <span class="comment">// ['image1.jpg', 'image2.png', 'image1.png', '...']</span></span><br><span class="line">getImages(<span class="built_in">document</span>, <span class="literal">false</span>); <span class="comment">// ['image1.jpg', 'image2.png', '...']</span></span><br></pre></td></tr></table></figure>
+<h3 id="9-如何确定设备是移动设备还是台式机-笔记本电脑？"><a href="#9-如何确定设备是移动设备还是台式机-笔记本电脑？" class="headerlink" title="9. 如何确定设备是移动设备还是台式机/笔记本电脑？"></a>9. 如何确定设备是移动设备还是台式机/笔记本电脑？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> detectDeviceType = <span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)</span><br><span class="line">    ? <span class="string">'Mobile'</span></span><br><span class="line">    : <span class="string">'Desktop'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">detectDeviceType(); <span class="comment">// "Mobile" or "Desktop"</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-如何创建一个包含当前URL参数的对象？"><a href="#10-如何创建一个包含当前URL参数的对象？" class="headerlink" title="10. 如何创建一个包含当前URL参数的对象？"></a>10. 如何创建一个包含当前URL参数的对象？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getURLParameters = <span class="function"><span class="params">url</span> =&gt;</span></span><br><span class="line">  (url.match(<span class="regexp">/([^?=&amp;]+)(=([^&amp;]*))/g</span>) || []).reduce(</span><br><span class="line">    (a, v) =&gt; ((a[v.slice(<span class="number">0</span>, v.indexOf(<span class="string">'='</span>))] = v.slice(v.indexOf(<span class="string">'='</span>) + <span class="number">1</span>)), a),</span><br><span class="line">    &#123;&#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">getURLParameters(<span class="string">'http://url.com/page?n=Adam&amp;s=Smith'</span>); <span class="comment">// &#123;n: 'Adam', s: 'Smith'&#125;</span></span><br><span class="line">getURLParameters(<span class="string">'google.com'</span>); <span class="comment">// &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="11-如何将一组表单元素转化为对象？"><a href="#11-如何将一组表单元素转化为对象？" class="headerlink" title="11. 如何将一组表单元素转化为对象？"></a>11. 如何将一组表单元素转化为对象？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> formToObject = <span class="function"><span class="params">form</span> =&gt;</span></span><br><span class="line">  <span class="built_in">Array</span>.from(<span class="keyword">new</span> FormData(form)).reduce(</span><br><span class="line">    (acc, [key, value]) =&gt; (&#123;</span><br><span class="line">      ...acc,</span><br><span class="line">      [key]: value</span><br><span class="line">    &#125;),</span><br><span class="line">    &#123;&#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">formToObject(<span class="built_in">document</span>.querySelector(<span class="string">'#form'</span>)); </span><br><span class="line"><span class="comment">// &#123; email: 'test@email.com', name: 'Test Name' &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="12-如何从对象检索给定选择器指示的一组属性？"><a href="#12-如何从对象检索给定选择器指示的一组属性？" class="headerlink" title="12. 如何从对象检索给定选择器指示的一组属性？"></a>12. 如何从对象检索给定选择器指示的一组属性？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">get</span> = (from, ...selectors) =&gt;</span><br><span class="line">  [...selectors].map(s =&gt;</span><br><span class="line">    s</span><br><span class="line">      .replace(/\[([^\[\]]*)\]/g, '.$1.')</span><br><span class="line">      .split('.')</span><br><span class="line">      .filter(t =&gt; t !== '')</span><br><span class="line">      .reduce((prev, cur) =&gt; prev &amp;&amp; prev[cur], from)</span><br><span class="line">  );</span><br><span class="line">const obj = &#123; selector: &#123; <span class="attr">to</span>: &#123; <span class="attr">val</span>: <span class="string">'val to select'</span> &#125; &#125;, <span class="attr">target</span>: [<span class="number">1</span>, <span class="number">2</span>, &#123; <span class="attr">a</span>: <span class="string">'test'</span> &#125;] &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Example</span></span><br><span class="line"><span class="keyword">get</span>(obj, 'selector.to.val', 'target[0]', 'target[2].a'); </span><br><span class="line">// ['val to select', 1, 'test']</span><br></pre></td></tr></table></figure>
+<h3 id="13-如何在等待指定时间后调用提供的函数？"><a href="#13-如何在等待指定时间后调用提供的函数？" class="headerlink" title="13. 如何在等待指定时间后调用提供的函数？"></a>13. 如何在等待指定时间后调用提供的函数？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> delay = <span class="function">(<span class="params">fn, wait, ...args</span>) =&gt;</span> setTimeout(fn, wait, ...args);</span><br><span class="line">delay(</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(text);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="number">1000</span>,</span><br><span class="line">  <span class="string">'later'</span></span><br><span class="line">); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 1秒后打印 'later'</span></span><br></pre></td></tr></table></figure>
+<h3 id="14-如何从元素中移除事件监听器"><a href="#14-如何从元素中移除事件监听器" class="headerlink" title="14. 如何从元素中移除事件监听器?"></a>14. 如何从元素中移除事件监听器?</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> off = <span class="function">(<span class="params">el, evt, fn, opts = <span class="literal">false</span></span>) =&gt;</span> el.removeEventListener(evt, fn, opts);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'!'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'click'</span>, fn);</span><br><span class="line">off(<span class="built_in">document</span>.body, <span class="string">'click'</span>, fn);</span><br></pre></td></tr></table></figure>
+<h3 id="15-如何获得给定毫秒数的可读格式？"><a href="#15-如何获得给定毫秒数的可读格式？" class="headerlink" title="15. 如何获得给定毫秒数的可读格式？"></a>15. 如何获得给定毫秒数的可读格式？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> formatDuration = <span class="function"><span class="params">ms</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (ms &lt; <span class="number">0</span>) ms = -ms;</span><br><span class="line">  <span class="keyword">const</span> time = &#123;</span><br><span class="line">    day: <span class="built_in">Math</span>.floor(ms / <span class="number">86400000</span>),</span><br><span class="line">    hour: <span class="built_in">Math</span>.floor(ms / <span class="number">3600000</span>) % <span class="number">24</span>,</span><br><span class="line">    minute: <span class="built_in">Math</span>.floor(ms / <span class="number">60000</span>) % <span class="number">60</span>,</span><br><span class="line">    second: <span class="built_in">Math</span>.floor(ms / <span class="number">1000</span>) % <span class="number">60</span>,</span><br><span class="line">    millisecond: <span class="built_in">Math</span>.floor(ms) % <span class="number">1000</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.entries(time)</span><br><span class="line">    .filter(<span class="function"><span class="params">val</span> =&gt;</span> val[<span class="number">1</span>] !== <span class="number">0</span>)</span><br><span class="line">    .map(<span class="function">(<span class="params">[key, val]</span>) =&gt;</span> <span class="string">`<span class="subst">$&#123;val&#125;</span> <span class="subst">$&#123;key&#125;</span><span class="subst">$&#123;val !== <span class="number">1</span> ? <span class="string">'s'</span> : <span class="string">''</span>&#125;</span>`</span>)</span><br><span class="line">    .join(<span class="string">', '</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">formatDuration(<span class="number">1001</span>); <span class="comment">// '1 second, 1 millisecond'</span></span><br><span class="line">formatDuration(<span class="number">34325055574</span>); </span><br><span class="line"><span class="comment">// '397 days, 6 hours, 44 minutes, 15 seconds, 574 milliseconds'</span></span><br></pre></td></tr></table></figure>
+<h3 id="16-如何获得两个日期之间的差异（以天为单位）？"><a href="#16-如何获得两个日期之间的差异（以天为单位）？" class="headerlink" title="16. 如何获得两个日期之间的差异（以天为单位）？"></a>16. 如何获得两个日期之间的差异（以天为单位）？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getDaysDiffBetweenDates = <span class="function">(<span class="params">dateInitial, dateFinal</span>) =&gt;</span></span><br><span class="line">  (dateFinal - dateInitial) / (<span class="number">1000</span> * <span class="number">3600</span> * <span class="number">24</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事例</span></span><br><span class="line">getDaysDiffBetweenDates(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2017-12-13'</span>), <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2017-12-22'</span>)); <span class="comment">// 9</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>坚持原创技术分享，您的支持将鼓励我继续创作！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class>
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,19 +247,124 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zengxuelu.github.io/2020/03/23/解决实际开发的JS问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/13/各种源码实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">各种源码实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<!-- <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "Mon Mar 23 2020 12:12:23 GMT+0800",
+  owner: 'zengxuelu',
+  repo: 'zengxuelu.github.io',
+  oauth: {
+    client_id: '238bf90207616559c008',
+    client_secret: '7f39879035ceb769253b456d15d6115758fbeae3',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -236,8 +387,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://zengxuelu.github.io">
-  <title>Archives: 2019/11 | Jerry&#39;s Develop Blog</title>
+  <title>Jerry&#39;s Develop Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
 <meta name="keywords" content="经验分享,前端知识,生活琐事">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jerry&#39;s Develop Blog">
-<meta property="og:url" content="https://zengxuelu.github.io/archives/2019/11/index.html">
+<meta property="og:url" content="https://zengxuelu.github.io/page0/2/index.html">
 <meta property="og:site_name" content="Jerry&#39;s Develop Blog">
 <meta property="og:description" content="喜欢探索未知,保持好奇心。重要的是常开心、常欣喜">
 <meta property="og:locale" content="zh-Hans">
@@ -158,34 +158,40 @@
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-深入浅出JavaScript运行机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/13/各种源码实现/" class="archive-article-date">
-  	<time datetime="2019-11-13T02:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/13/各种源码实现/">各种源码实现</a>
+      <a class="article-title" href="/2018/10/26/深入浅出JavaScript运行机制/">深入浅出JavaScript运行机制</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/10/26/深入浅出JavaScript运行机制/" class="archive-article-date">
+  	<time datetime="2018-10-26T06:07:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、引子"><a href="#一、引子" class="headerlink" title="一、引子"></a>一、引子</h3><p>本文介绍JavaScript运行机制，这部分比较抽象，我们先从一道面试题入手：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 请问打印顺序</span></span><br></pre></td></tr></table></figure></p>
+<p>这题看似很简单，但如果你不知道Javascript运行机制很容易答错</p>
+<h3 id="二、理解JS的单线程概念"><a href="#二、理解JS的单线程概念" class="headerlink" title="二、理解JS的单线程概念"></a>二、理解JS的单线程概念</h3><p>JavaScript语言的一大特点就是单线，也就是说同一时间只能做一件事<br>JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？<br>所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。</p>
+<h3 id="三、理解任务队列"><a href="#三、理解任务队列" class="headerlink" title="三、理解任务队列"></a>三、理解任务队列</h3><p>单线程就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。如果前一个任务耗时很长，后一个任务就不得不一直等着。JavaScript语言的设计者意识到这个问题，将所有任务分成两种，<code>一种是同步任务（synchronous），另一种是异步任务（asynchronous）</code>。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。异步任务包括宏任务和微任务(后面会重点介绍)，接下来我们通过两个例子说明同步任务和异步任务的区别：</p>
+        
+          <a class="article-more-a" href="/2018/10/26/深入浅出JavaScript运行机制/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,19 +207,45 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/26/深入浅出JavaScript运行机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -235,9 +267,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
